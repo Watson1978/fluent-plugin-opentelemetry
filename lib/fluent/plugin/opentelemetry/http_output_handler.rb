@@ -40,6 +40,7 @@ class Fluent::Plugin::Opentelemetry::HttpOutputHandler
   def export(record)
     uri, headers, body = get_post_data(record)
     response = @connections[record["type"]].post(body: body, headers: headers, idempotent: true)
+    response.body
 
     return if response.status >= 200 && response.status < 300
 
