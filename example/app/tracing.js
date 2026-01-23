@@ -54,7 +54,7 @@ setInterval(() => {
     doWork(parentSpan);
   }
   parentSpan.end();
-}, 100);
+}, 5000);
 
 // process.on('SIGTERM', () => {
 //   provider.shutdown().then(() => console.log('Tracing terminated'));
