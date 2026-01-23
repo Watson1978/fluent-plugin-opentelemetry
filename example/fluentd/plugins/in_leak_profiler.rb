@@ -10,7 +10,7 @@ module Fluent::Plugin
     def start
       super
 
-      ::LeakProfiler.new(output_dir: "/fluentd/leak_profiler").report(interval: 60, max_referrers: 5)
+      ::LeakProfiler.new(output_dir: "/fluentd/leak_profiler").report(interval: 15, max_referrers: 5, run_gc: true)
     end
   end
 end
