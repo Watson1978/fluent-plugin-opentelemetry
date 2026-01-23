@@ -7,4 +7,16 @@ RUN apt-get update && \
     make \
     gcc \
     git
-RUN gem install fluent-plugin-opentelemetry grpc
+
+# RUN gem uninstall fluentd -a
+# COPY ./fluentd-1.19.0.gem /fluentd/
+# RUN gem install /fluentd/fluentd-1.19.0.gem
+
+RUN fluent-gem install grpc
+
+RUN gem uninstall fluent-plugin-opentelemetry -a
+COPY ./fluent-plugin-opentelemetry-0.4.0.gem /fluentd/
+RUN fluent-gem install /fluentd/fluent-plugin-opentelemetry-0.4.0.gem
+
+RUN fluent-gem install leak_profiler
+

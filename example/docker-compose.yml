@@ -14,6 +14,8 @@ services:
     container_name: fluentd
     volumes:
     - "./fluentd/fluent.conf:/fluentd/etc/fluent.conf"
+    - "./fluentd/plugins:/fluentd/plugins"
+    - "./fluentd/leak_profiler:/fluentd/leak_profiler"
     depends_on:
       collector:
         condition: service_started
