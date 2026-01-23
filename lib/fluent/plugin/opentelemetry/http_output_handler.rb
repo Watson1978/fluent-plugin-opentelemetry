@@ -56,8 +56,6 @@ class Fluent::Plugin::Opentelemetry::HttpOutputHandler
     else
       @logger.error "got error response from '#{uri}', response code is #{response.status}"
     end
-  ensure
-    connection.reset
   end
 
   private
