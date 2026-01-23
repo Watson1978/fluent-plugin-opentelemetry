@@ -54,4 +54,4 @@ const attributes = { pid: process.pid, environment: 'staging' };
 setInterval(() => {
   requestCounter.add(15, attributes);
   upDownCounter.add(Math.random() > 0.5 ? 1 : -1, attributes);
-}, 1000);
+}, 100);
