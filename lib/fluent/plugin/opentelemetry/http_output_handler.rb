@@ -94,7 +94,7 @@ class Fluent::Plugin::Opentelemetry::HttpOutputHandler
     end
 
     Excon.defaults[:ssl_verify_peer] = false if @transport_config.insecure
-    connection = Excon.new(uri, body: body, headers: headers, proxy: @http_config.proxy, persistent: true, **@tls_settings, **@timeout_settings)
+    connection = Excon.new(uri, body: body, headers: headers, proxy: @http_config.proxy, persistent: false, **@tls_settings, **@timeout_settings)
     [uri, connection]
   end
 end
